@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitHubSoapBroker", "GitHubSoapBroker\GitHubSoapBroker.csproj", "{0B5AAF4F-68E1-4417-9369-6945AC84943E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitHubSoapClient", "GitHubSoapClient\GitHubSoapClient.csproj", "{39885B6F-178B-495C-A93F-72CE33155021}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SOAP", "SOAP", "{B81D0CA1-64A0-45C7-A5E2-EE34D9173DCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogEngine", "BlogEngine\BlogEngine.csproj", "{F846F513-4715-4F51-ACE1-101A0D2F25A7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebAPI", "WebAPI", "{1324CE46-C223-45DE-8937-C453168390D3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0B5AAF4F-68E1-4417-9369-6945AC84943E}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{0B5AAF4F-68E1-4417-9369-6945AC84943E}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{0B5AAF4F-68E1-4417-9369-6945AC84943E}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{0B5AAF4F-68E1-4417-9369-6945AC84943E}.Debug|x86.ActiveCfg = Debug|x86
+		{0B5AAF4F-68E1-4417-9369-6945AC84943E}.Debug|x86.Build.0 = Debug|x86
+		{0B5AAF4F-68E1-4417-9369-6945AC84943E}.Release|Any CPU.ActiveCfg = Release|x86
+		{0B5AAF4F-68E1-4417-9369-6945AC84943E}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{0B5AAF4F-68E1-4417-9369-6945AC84943E}.Release|Mixed Platforms.Build.0 = Release|x86
+		{0B5AAF4F-68E1-4417-9369-6945AC84943E}.Release|x86.ActiveCfg = Release|x86
+		{0B5AAF4F-68E1-4417-9369-6945AC84943E}.Release|x86.Build.0 = Release|x86
+		{39885B6F-178B-495C-A93F-72CE33155021}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{39885B6F-178B-495C-A93F-72CE33155021}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{39885B6F-178B-495C-A93F-72CE33155021}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{39885B6F-178B-495C-A93F-72CE33155021}.Debug|x86.ActiveCfg = Debug|x86
+		{39885B6F-178B-495C-A93F-72CE33155021}.Debug|x86.Build.0 = Debug|x86
+		{39885B6F-178B-495C-A93F-72CE33155021}.Release|Any CPU.ActiveCfg = Release|x86
+		{39885B6F-178B-495C-A93F-72CE33155021}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{39885B6F-178B-495C-A93F-72CE33155021}.Release|Mixed Platforms.Build.0 = Release|x86
+		{39885B6F-178B-495C-A93F-72CE33155021}.Release|x86.ActiveCfg = Release|x86
+		{39885B6F-178B-495C-A93F-72CE33155021}.Release|x86.Build.0 = Release|x86
+		{F846F513-4715-4F51-ACE1-101A0D2F25A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F846F513-4715-4F51-ACE1-101A0D2F25A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F846F513-4715-4F51-ACE1-101A0D2F25A7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F846F513-4715-4F51-ACE1-101A0D2F25A7}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F846F513-4715-4F51-ACE1-101A0D2F25A7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F846F513-4715-4F51-ACE1-101A0D2F25A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F846F513-4715-4F51-ACE1-101A0D2F25A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F846F513-4715-4F51-ACE1-101A0D2F25A7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{F846F513-4715-4F51-ACE1-101A0D2F25A7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{F846F513-4715-4F51-ACE1-101A0D2F25A7}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0B5AAF4F-68E1-4417-9369-6945AC84943E} = {B81D0CA1-64A0-45C7-A5E2-EE34D9173DCF}
+		{39885B6F-178B-495C-A93F-72CE33155021} = {B81D0CA1-64A0-45C7-A5E2-EE34D9173DCF}
+		{F846F513-4715-4F51-ACE1-101A0D2F25A7} = {1324CE46-C223-45DE-8937-C453168390D3}
+	EndGlobalSection
+EndGlobal

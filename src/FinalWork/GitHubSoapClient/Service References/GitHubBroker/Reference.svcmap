@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b4d7c178-87ca-4457-80cf-5ae7d9d1905a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8080/wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="wsdl.xsd" MetadataType="Schema" ID="8d9fb537-1415-4758-9fb2-669b188153c1" SourceId="1" SourceUrl="http://localhost:8080/wsdl?xsd=xsd2" />
+    <MetadataFile FileName="GitHubSoapBrokerImpl.wsdl" MetadataType="Wsdl" ID="8ab37a91-46d8-426b-95c8-935afffffe75" SourceId="1" SourceUrl="http://localhost:8080/wsdl" />
+    <MetadataFile FileName="wsdl1.xsd" MetadataType="Schema" ID="55ee6145-55a2-483c-b4c4-647bf8dbfa4d" SourceId="1" SourceUrl="http://localhost:8080/wsdl?xsd=xsd0" />
+    <MetadataFile FileName="wsdl2.xsd" MetadataType="Schema" ID="4612179d-de3b-4a65-be7f-dd900d360ac6" SourceId="1" SourceUrl="http://localhost:8080/wsdl?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

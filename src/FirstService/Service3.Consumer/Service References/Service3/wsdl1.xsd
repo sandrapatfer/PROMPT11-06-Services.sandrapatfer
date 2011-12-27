@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8080/wsdl?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Service3" />
+  <xs:element name="WordLookup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Service3" minOccurs="0" name="req" nillable="true" type="q1:WordReq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WordLookupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Service3" minOccurs="0" name="WordLookupResult" nillable="true" type="q2:WordResp" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
