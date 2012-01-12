@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace GitHubSoapBroker.Data_Contracts
+namespace GitHubSoapBroker
 {
-    public class JasonUser
+    public class JsonUser
     {
         public string login { get; set; }
         public int id { get; set; }

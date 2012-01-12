@@ -18,4 +18,11 @@ namespace GitHubSoapBroker
         [DataMember]
         public StatusCode Code { get; set; }
     }
+
+    [DataContract]
+    class CreationStatusResp : StatusResp
+    {
+        [DataMember]
+        public string NewEntityId { get; set; }
+    }
 }

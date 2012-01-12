@@ -50,7 +50,7 @@
   <xs:element name="CreateIssueResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/GitHubSoapBroker" minOccurs="0" name="CreateIssueResult" nillable="true" type="q5:StatusResp" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/GitHubSoapBroker" minOccurs="0" name="CreateIssueResult" nillable="true" type="q5:CreationStatusResp" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -67,6 +67,35 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/GitHubSoapBroker" minOccurs="0" name="EditIssueResult" nillable="true" type="q7:StatusResp" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateRepository">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/GitHubSoapBroker" minOccurs="0" name="r" nillable="true" type="q8:RepositoryData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateRepositoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/GitHubSoapBroker" minOccurs="0" name="CreateRepositoryResult" nillable="true" type="q9:CreationStatusResp" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditRepository">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/GitHubSoapBroker" minOccurs="0" name="r" nillable="true" type="q10:RepositoryData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditRepositoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/GitHubSoapBroker" minOccurs="0" name="EditRepositoryResult" nillable="true" type="q11:StatusResp" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

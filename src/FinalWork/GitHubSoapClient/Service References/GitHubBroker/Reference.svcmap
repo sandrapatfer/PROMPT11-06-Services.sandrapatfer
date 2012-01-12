@@ -21,9 +21,10 @@
     <MetadataSource Address="http://localhost:8080/wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
+    <MetadataFile FileName="wsdl3.xsd" MetadataType="Schema" ID="4bf5c700-f56d-46fd-8e6d-c2203a67a776" SourceId="1" SourceUrl="http://localhost:8080/wsdl?xsd=xsd3" />
+    <MetadataFile FileName="wsdl1.xsd" MetadataType="Schema" ID="55ee6145-55a2-483c-b4c4-647bf8dbfa4d" SourceId="1" SourceUrl="http://localhost:8080/wsdl?xsd=xsd0" />
     <MetadataFile FileName="wsdl.xsd" MetadataType="Schema" ID="8d9fb537-1415-4758-9fb2-669b188153c1" SourceId="1" SourceUrl="http://localhost:8080/wsdl?xsd=xsd2" />
     <MetadataFile FileName="GitHubSoapBrokerImpl.wsdl" MetadataType="Wsdl" ID="8ab37a91-46d8-426b-95c8-935afffffe75" SourceId="1" SourceUrl="http://localhost:8080/wsdl" />
-    <MetadataFile FileName="wsdl1.xsd" MetadataType="Schema" ID="55ee6145-55a2-483c-b4c4-647bf8dbfa4d" SourceId="1" SourceUrl="http://localhost:8080/wsdl?xsd=xsd0" />
     <MetadataFile FileName="wsdl2.xsd" MetadataType="Schema" ID="4612179d-de3b-4a65-be7f-dd900d360ac6" SourceId="1" SourceUrl="http://localhost:8080/wsdl?xsd=xsd1" />
   </Metadata>
   <Extensions>

@@ -10,6 +10,7 @@ namespace GitHubSoapBroker
     class RepositoriesCollectionResp
     {
         [DataMember]
+        //public IEnumerable<Repository> Repositories { get; set; }
         public Repository[] Repositories { get; set; }
     }
 }

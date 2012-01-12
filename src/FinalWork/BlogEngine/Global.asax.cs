@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using DependencyResolution;
 
 namespace BlogEngine
 {
@@ -21,7 +22,7 @@ namespace BlogEngine
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapServiceRoute<Service.BlogEngineService>("blog");
+            routes.MapServiceRoute<BlogEngineService>("blog");
 
             routes.MapRoute(
                 "Default", // Route name
@@ -34,6 +35,7 @@ namespace BlogEngine
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+            AppStart_Structuremap.Start();
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);

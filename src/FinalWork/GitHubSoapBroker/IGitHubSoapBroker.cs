@@ -19,9 +19,15 @@ namespace GitHubSoapBroker
         RepositoriesCollectionResp GetRepositories();
 
         [OperationContract]
-        StatusResp CreateIssue(string repository, IssueData i);
+        CreationStatusResp CreateIssue(string repository, IssueData i);
 
         [OperationContract]
         StatusResp EditIssue(string repository, string id, IssueData i);
+
+        [OperationContract]
+        CreationStatusResp CreateRepository(RepositoryData r);
+
+        [OperationContract]
+        StatusResp EditRepository(string id, RepositoryData r);
     }
 }

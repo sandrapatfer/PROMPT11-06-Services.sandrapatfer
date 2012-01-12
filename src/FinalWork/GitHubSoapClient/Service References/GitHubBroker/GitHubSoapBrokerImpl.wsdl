@@ -5,6 +5,7 @@
       <xsd:import schemaLocation="http://localhost:8080/wsdl?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8080/wsdl?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:8080/wsdl?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/GitHubSoapBroker" />
+      <xsd:import schemaLocation="http://localhost:8080/wsdl?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IGitHubSoapBroker_GetAllIssues_InputMessage">
@@ -37,6 +38,18 @@
   <wsdl:message name="IGitHubSoapBroker_EditIssue_OutputMessage">
     <wsdl:part name="parameters" element="tns:EditIssueResponse" />
   </wsdl:message>
+  <wsdl:message name="IGitHubSoapBroker_CreateRepository_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRepository" />
+  </wsdl:message>
+  <wsdl:message name="IGitHubSoapBroker_CreateRepository_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRepositoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGitHubSoapBroker_EditRepository_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditRepository" />
+  </wsdl:message>
+  <wsdl:message name="IGitHubSoapBroker_EditRepository_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditRepositoryResponse" />
+  </wsdl:message>
   <wsdl:portType name="IGitHubSoapBroker">
     <wsdl:operation name="GetAllIssues">
       <wsdl:input wsaw:Action="http://tempuri.org/IGitHubSoapBroker/GetAllIssues" message="tns:IGitHubSoapBroker_GetAllIssues_InputMessage" />
@@ -57,6 +70,14 @@
     <wsdl:operation name="EditIssue">
       <wsdl:input wsaw:Action="http://tempuri.org/IGitHubSoapBroker/EditIssue" message="tns:IGitHubSoapBroker_EditIssue_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGitHubSoapBroker/EditIssueResponse" message="tns:IGitHubSoapBroker_EditIssue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateRepository">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGitHubSoapBroker/CreateRepository" message="tns:IGitHubSoapBroker_CreateRepository_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGitHubSoapBroker/CreateRepositoryResponse" message="tns:IGitHubSoapBroker_CreateRepository_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditRepository">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGitHubSoapBroker/EditRepository" message="tns:IGitHubSoapBroker_EditRepository_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGitHubSoapBroker/EditRepositoryResponse" message="tns:IGitHubSoapBroker_EditRepository_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IGitHubSoapBroker" type="tns:IGitHubSoapBroker">
@@ -99,6 +120,24 @@
     </wsdl:operation>
     <wsdl:operation name="EditIssue">
       <soap:operation soapAction="http://tempuri.org/IGitHubSoapBroker/EditIssue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateRepository">
+      <soap:operation soapAction="http://tempuri.org/IGitHubSoapBroker/CreateRepository" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditRepository">
+      <soap:operation soapAction="http://tempuri.org/IGitHubSoapBroker/EditRepository" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

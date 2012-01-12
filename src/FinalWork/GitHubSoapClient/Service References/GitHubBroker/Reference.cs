@@ -82,6 +82,9 @@ namespace GitHubSoapClient.GitHubBroker {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string UrlField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string[] labelsField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -157,6 +160,19 @@ namespace GitHubSoapClient.GitHubBroker {
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string[] labels {
+            get {
+                return this.labelsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.labelsField, value) != true)) {
+                    this.labelsField = value;
+                    this.RaisePropertyChanged("labels");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -216,10 +232,43 @@ namespace GitHubSoapClient.GitHubBroker {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Repository", Namespace="http://schemas.datacontract.org/2004/07/GitHubSoapBroker")]
     [System.SerializableAttribute()]
-    public partial class Repository : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Repository : GitHubSoapClient.GitHubBroker.RepositoryData {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IdField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IdField, value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RepositoryData", Namespace="http://schemas.datacontract.org/2004/07/GitHubSoapBroker")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GitHubSoapClient.GitHubBroker.Repository))]
+    public partial class RepositoryData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UrlField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -228,6 +277,45 @@ namespace GitHubSoapClient.GitHubBroker {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Url {
+            get {
+                return this.UrlField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UrlField, value) != true)) {
+                    this.UrlField = value;
+                    this.RaisePropertyChanged("Url");
+                }
             }
         }
         
@@ -245,6 +333,7 @@ namespace GitHubSoapClient.GitHubBroker {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="StatusResp", Namespace="http://schemas.datacontract.org/2004/07/GitHubSoapBroker")]
     [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GitHubSoapClient.GitHubBroker.CreationStatusResp))]
     public partial class StatusResp : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -286,6 +375,29 @@ namespace GitHubSoapClient.GitHubBroker {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CreationStatusResp", Namespace="http://schemas.datacontract.org/2004/07/GitHubSoapBroker")]
+    [System.SerializableAttribute()]
+    public partial class CreationStatusResp : GitHubSoapClient.GitHubBroker.StatusResp {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NewEntityIdField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NewEntityId {
+            get {
+                return this.NewEntityIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NewEntityIdField, value) != true)) {
+                    this.NewEntityIdField = value;
+                    this.RaisePropertyChanged("NewEntityId");
+                }
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="StatusCode", Namespace="http://schemas.datacontract.org/2004/07/GitHubSoapBroker")]
     public enum StatusCode : int {
@@ -311,10 +423,16 @@ namespace GitHubSoapClient.GitHubBroker {
         GitHubSoapClient.GitHubBroker.RepositoriesCollectionResp GetRepositories();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGitHubSoapBroker/CreateIssue", ReplyAction="http://tempuri.org/IGitHubSoapBroker/CreateIssueResponse")]
-        GitHubSoapClient.GitHubBroker.StatusResp CreateIssue(string repository, GitHubSoapClient.GitHubBroker.IssueData i);
+        GitHubSoapClient.GitHubBroker.CreationStatusResp CreateIssue(string repository, GitHubSoapClient.GitHubBroker.IssueData i);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGitHubSoapBroker/EditIssue", ReplyAction="http://tempuri.org/IGitHubSoapBroker/EditIssueResponse")]
         GitHubSoapClient.GitHubBroker.StatusResp EditIssue(string repository, string id, GitHubSoapClient.GitHubBroker.IssueData i);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGitHubSoapBroker/CreateRepository", ReplyAction="http://tempuri.org/IGitHubSoapBroker/CreateRepositoryResponse")]
+        GitHubSoapClient.GitHubBroker.CreationStatusResp CreateRepository(GitHubSoapClient.GitHubBroker.RepositoryData r);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGitHubSoapBroker/EditRepository", ReplyAction="http://tempuri.org/IGitHubSoapBroker/EditRepositoryResponse")]
+        GitHubSoapClient.GitHubBroker.StatusResp EditRepository(string id, GitHubSoapClient.GitHubBroker.RepositoryData r);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -356,12 +474,20 @@ namespace GitHubSoapClient.GitHubBroker {
             return base.Channel.GetRepositories();
         }
         
-        public GitHubSoapClient.GitHubBroker.StatusResp CreateIssue(string repository, GitHubSoapClient.GitHubBroker.IssueData i) {
+        public GitHubSoapClient.GitHubBroker.CreationStatusResp CreateIssue(string repository, GitHubSoapClient.GitHubBroker.IssueData i) {
             return base.Channel.CreateIssue(repository, i);
         }
         
         public GitHubSoapClient.GitHubBroker.StatusResp EditIssue(string repository, string id, GitHubSoapClient.GitHubBroker.IssueData i) {
             return base.Channel.EditIssue(repository, id, i);
+        }
+        
+        public GitHubSoapClient.GitHubBroker.CreationStatusResp CreateRepository(GitHubSoapClient.GitHubBroker.RepositoryData r) {
+            return base.Channel.CreateRepository(r);
+        }
+        
+        public GitHubSoapClient.GitHubBroker.StatusResp EditRepository(string id, GitHubSoapClient.GitHubBroker.RepositoryData r) {
+            return base.Channel.EditRepository(id, r);
         }
     }
 }

@@ -78,6 +78,7 @@
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Activation" />
     <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -85,8 +86,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data Contracts\JasonLabel.cs" />
-    <Compile Include="Data Contracts\JasonUser.cs" />
+    <Compile Include="Data Contracts\JsonLabel.cs" />
+    <Compile Include="Data Contracts\JsonUser.cs" />
     <Compile Include="Data Contracts\Repository.cs" />
     <Compile Include="GitHubSoapBrokerImpl.cs" />
     <Compile Include="IGitHubSoapBroker.cs" />

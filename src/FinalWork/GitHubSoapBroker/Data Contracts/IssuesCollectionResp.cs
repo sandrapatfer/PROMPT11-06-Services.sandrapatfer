@@ -10,7 +10,8 @@ namespace GitHubSoapBroker
     class IssuesCollectionResp
     {
         [DataMember]
-        public IEnumerable<IssueData> Issues { get; set; }
-//        public IssueData[] Issues { get; set; }
+        public List<IssueData> Issues { get; set; }
+        //public IEnumerable<IssueData> Issues { get; set; }
+        //public IssueData[] Issues { get; set; }
     }
 }

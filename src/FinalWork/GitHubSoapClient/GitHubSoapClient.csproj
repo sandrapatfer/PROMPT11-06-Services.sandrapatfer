@@ -49,12 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreateIssueForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CreateIssueForm.Designer.cs">
-      <DependentUpon>CreateIssueForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,9 +62,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CreateIssueForm.resx">
-      <DependentUpon>CreateIssueForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -95,6 +86,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="Service References\GitHubBroker\GitHubSoapBrokerImpl.wsdl" />
+    <None Include="Service References\GitHubBroker\GitHubSoapClient.GitHubBroker.CreationStatusResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\GitHubBroker\GitHubSoapClient.GitHubBroker.IssuesCollectionResp.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -111,6 +105,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\GitHubBroker\wsdl2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GitHubBroker\wsdl3.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
