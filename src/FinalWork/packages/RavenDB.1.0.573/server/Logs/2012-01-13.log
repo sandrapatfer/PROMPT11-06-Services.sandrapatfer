@@ -1,0 +1,13 @@
+time;logger;level;message;exception
+2012-01-13 00:03:33.7645;Raven.Database.Indexing.WorkContext;Debug;Not work was found, workerWorkCounter: 4, currentWorkCounter: 4, will wait for additional work;
+2012-01-13 00:12:45.4020;Raven.Database.Server.HttpServer;Debug;Request # 743: GET     -    44 ms - <default>  - 200 - /stats?noCache=-308266600;
+2012-01-13 00:13:33.7649;Raven.Database.Indexing.WorkContext;Debug;Not work was found, workerWorkCounter: 4, currentWorkCounter: 4, will wait for additional work;
+2012-01-13 00:19:32.7364;Raven.Database.Server.HttpServer;Debug;Request # 744: GET     -    28 ms - <default>  - 200 - /stats?noCache=22389035;
+2012-01-13 00:23:33.7690;Raven.Database.Indexing.WorkContext;Debug;Not work was found, workerWorkCounter: 4, currentWorkCounter: 4, will wait for additional work;
+2012-01-13 00:33:33.6798;Raven.Database.Indexing.WorkContext;Debug;Not work was found, workerWorkCounter: 4, currentWorkCounter: 4, will wait for additional work;
+2012-01-13 00:33:33.7698;Raven.Database.Indexing.WorkContext;Debug;Not work was found, workerWorkCounter: 4, currentWorkCounter: 4, will wait for additional work;
+2012-01-13 00:33:33.7698;Raven.Database.Indexing.WorkContext;Debug;Not work was found, workerWorkCounter: 4, currentWorkCounter: 4, will wait for additional work;
+2012-01-13 00:33:33.7898;Raven.Database.Indexing.WorkContext;Debug;Not work was found, workerWorkCounter: 4, currentWorkCounter: 4, will wait for additional work;
+2012-01-13 00:43:33.7749;Raven.Database.Indexing.WorkContext;Debug;Not work was found, workerWorkCounter: 4, currentWorkCounter: 4, will wait for additional work;
+2012-01-13 00:53:33.7828;Raven.Database.Indexing.WorkContext;Debug;Not work was found, workerWorkCounter: 4, currentWorkCounter: 4, will wait for additional work;
+2012-01-13 01:03:33.7832;Raven.Database.Indexing.WorkContext;Debug;Not work was found, workerWorkCounter: 4, currentWorkCounter: 4, will wait for additional work;

@@ -2,27 +2,49 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DomainModel.Repository;
 
 namespace DomainModel
 {
     public class PostManagerImpl : IPostManager
     {
-        // TODO set the repository
-        List<Post> _tmpPosts = new List<Post>();
+        private IPostRepository _repository;
 
-        public PostManagerImpl()
+        public PostManagerImpl(IPostRepository repo)
         {
-            _tmpPosts.Add(new Post() { Title = "um post" });
-            _tmpPosts.Add(new Post() { Title = "outro post" });
+            _repository = repo;
+//            var post = new Post() { Title = "primeiro post" };
+//            Create(post);
         }
 
         #region IPostManager Members
 
         public List<Post> GetAllPosts()
         {
-            return _tmpPosts;
+            return _repository.GetAll().ToList();
+        }
+
+        public Post Get(string id)
+        {
+            return _repository.Get(id);
+        }
+
+        public void Create(Post post)
+        {
+            _repository.Add(post);
+        }
+
+        public void Update(Post post)
+        {
+            _repository.Update(post);
+        }
+
+        public void Delete(string id)
+        {
+            _repository.Delete(id);
         }
 
         #endregion
+
     }
 }

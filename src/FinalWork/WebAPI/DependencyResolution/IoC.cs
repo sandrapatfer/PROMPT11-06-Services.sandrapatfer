@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using StructureMap;
 using DomainModel;
+using DomainModel.Repository;
 
 namespace DependencyResolution
 {
@@ -19,6 +20,7 @@ namespace DependencyResolution
                         scan.WithDefaultConventions();
                     });
                     x.For<IPostManager>().HttpContextScoped().Use<PostManagerImpl>();
+                    x.For<IPostRepository>().HttpContextScoped().Use<PostRepositoryImpl>();
                 });
             return ObjectFactory.Container;
         }
