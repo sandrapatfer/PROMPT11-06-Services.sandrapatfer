@@ -14,7 +14,7 @@ using System.Configuration;
 using System.Net.Http.Formatting;
 using System.Xml;
 
-namespace BlogEngine
+namespace Service
 {
     [ServiceContract]
     public class BlogEngineService
@@ -71,7 +71,7 @@ namespace BlogEngine
                     return new HttpResponseMessage()
                     {
                         StatusCode = HttpStatusCode.OK,
-                        Content = new ObjectContent(typeof(List<Post>), posts, new List<MediaTypeFormatter>() { new XmlMediaTypeFormatter() })
+                        Content = new ObjectContent(typeof(List<Post>), posts, new List<MediaTypeFormatter>() { new PostListHtmlMediaTypeFormatter() })
                     };
                 }
                 else
@@ -129,7 +129,7 @@ namespace BlogEngine
                 return new HttpResponseMessage()
                 {
                     StatusCode = HttpStatusCode.OK,
-                    Content = new ObjectContent(typeof(Post), post, new List<MediaTypeFormatter>() { new XmlMediaTypeFormatter() })
+                    Content = new ObjectContent(typeof(Post), post, new List<MediaTypeFormatter>() { new PostHtmlMediaTypeFormatter() })
                 };
             }
             else if (request.AcceptsAtom())

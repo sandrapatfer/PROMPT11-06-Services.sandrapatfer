@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Net.Http;
 
-namespace BlogEngine
+namespace Service
 {
     public static class Utils
     {
