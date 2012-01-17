@@ -20,6 +20,12 @@ namespace GitHubSoapBroker
                 HttpGetEnabled = true,
                 HttpGetUrl = new Uri("http://localhost:8080/wsdl")
             });
+
+            foreach (var op in host.Description.Endpoints[0].Contract.Operations)
+            {
+                op.Behaviors.Add(new Behaviors.ConnectionCheckOperationBehavior());
+            }
+
             host.Open();
             Console.WriteLine("Service is open");
             Console.ReadKey();

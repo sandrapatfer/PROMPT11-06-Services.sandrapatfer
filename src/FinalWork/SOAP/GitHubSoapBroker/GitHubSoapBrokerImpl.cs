@@ -19,7 +19,7 @@ namespace GitHubSoapBroker
 
         private GitHubSoapBrokerImpl()
         {
-            _httpClient = new HttpClient();
+            _httpClient = new GitHubConnection();
             var bytes = Encoding.ASCII.GetBytes("spf-uc06:spf1234");
             var authHeader = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(bytes));
             _httpClient.DefaultRequestHeaders.Authorization = authHeader;
@@ -29,10 +29,6 @@ namespace GitHubSoapBroker
 
         public IssuesCollectionResp GetAllIssues()
         {
-            // TODO meter no bionding qq coisa q verifique para todas as operações se o 
-            // httpclient existe e se não lancar uma fault exception, não soap exception
-            // perceber a diferença tb era bonito!
-
             var resp = _httpClient.GetAsync("https://api.github.com/issues/");
             if (resp.Result.IsSuccessStatusCode)
             {

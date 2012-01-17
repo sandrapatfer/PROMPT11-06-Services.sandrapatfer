@@ -86,9 +86,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Behaviors\ConnectionCheckOperationBehavior.cs" />
+    <Compile Include="Data Contracts\Faults\ServiceUnavailableFault.cs" />
     <Compile Include="Data Contracts\JsonLabel.cs" />
     <Compile Include="Data Contracts\JsonUser.cs" />
     <Compile Include="Data Contracts\Repository.cs" />
+    <Compile Include="GitHubConnection.cs" />
     <Compile Include="GitHubSoapBrokerImpl.cs" />
     <Compile Include="IGitHubSoapBroker.cs" />
     <Compile Include="Data Contracts\Issue.cs" />
