@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Runtime.Serialization;
 
 namespace GitHubSoapBroker
 {
-    public class JsonUser
+    [DataContract]
+    class InternalServerFault
     {
-        public string login { get; set; }
-        public int id { get; set; }
     }
 }

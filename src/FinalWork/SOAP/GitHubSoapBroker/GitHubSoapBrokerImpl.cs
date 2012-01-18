@@ -7,6 +7,8 @@ using System.Net.Http.Headers;
 using System.Net.Http.Formatting;
 using System.Web.Services;
 using System.Web.Services.Protocols;
+using System.ServiceModel;
+using System.Net;
 
 namespace GitHubSoapBroker
 {
@@ -25,52 +27,62 @@ namespace GitHubSoapBroker
             _httpClient.DefaultRequestHeaders.Authorization = authHeader;
         }
 
+        private void CheckResponse(HttpResponseMessage result)
+        {
+            if (result.StatusCode > HttpStatusCode.InternalServerError)
+            {
+                throw new FaultException<ServiceUnavailableFault>(
+                                    new ServiceUnavailableFault
+                                    {
+                                        Reason = "Connection to Git Hub is down",
+                                        RetryPeriod = DateTime.Now.AddMinutes(5)
+                                    });
+            }
+            else if (!result.IsSuccessStatusCode)
+            {
+                throw new FaultException<InternalServerFault>(new InternalServerFault());
+            }
+        }
+
         #region IGitHubSoapBroker Members
 
         public IssuesCollectionResp GetAllIssues()
         {
             var resp = _httpClient.GetAsync("https://api.github.com/issues/");
-            if (resp.Result.IsSuccessStatusCode)
-            {
-                var issues = resp.Result.Content.ReadAsAsync<IEnumerable<JsonIssue>>().Result;
-                return new IssuesCollectionResp()
-                {
-                    Issues = issues != null ? issues.Select(i => new IssueData()
-                    {
-                        Url = i.url,
-                        Number = i.number,
-                        State = i.state,
-                        Title = i.title,
-                        Body = i.body
-                        //            labels = i.labels.Select(l => l.name);
-                    }).ToList() : null
-                };
-            }
+            CheckResponse(resp.Result);
 
-            throw new SoapException("Error processing request", SoapException.ServerFaultCode);
+            var issues = resp.Result.Content.ReadAsAsync<IEnumerable<JsonIssue>>().Result;
+            return new IssuesCollectionResp()
+            {
+                Issues = issues != null ? issues.Select(i => new IssueData()
+                {
+                    Url = i.url,
+                    Number = i.number,
+                    State = i.state,
+                    Title = i.title,
+                    Body = i.body
+                }).ToList() : null
+            };
         }
 
         public IssuesCollectionResp GetRepositoryIssues(string repository)
         {
             var uri = string.Format("https://api.github.com/repos/{0}/{1}/issues", UserName, repository);
-            var resp = _httpClient.GetAsync(uri);
-            if (resp.Result.IsSuccessStatusCode)
-            {
-                var issues = resp.Result.Content.ReadAsAsync<IEnumerable<JsonIssue>>().Result;
-                return new IssuesCollectionResp()
-                {
-                    Issues = issues != null ? issues.Select(i => new IssueData() {
-                        Url = i.url,
-                        Number = i.number,
-                        State = i.state,
-                        Title = i.title,
-                        Body = i.body
-//            labels = i.labels.Select(l => l.name);
-                    }).ToList() : null
-                };
-            }
 
-            throw new SoapException("Error processing request", SoapException.ServerFaultCode);
+            var resp = _httpClient.GetAsync(uri);
+            CheckResponse(resp.Result);
+            
+            var issues = resp.Result.Content.ReadAsAsync<IEnumerable<JsonIssue>>().Result;
+            return new IssuesCollectionResp()
+            {
+                Issues = issues != null ? issues.Select(i => new IssueData() {
+                    Url = i.url,
+                    Number = i.number,
+                    State = i.state,
+                    Title = i.title,
+                    Body = i.body
+                }).ToList() : null
+            };
         }
 
         public CreationStatusResp CreateIssue(string repository, IssueData i)
@@ -82,20 +94,21 @@ namespace GitHubSoapBroker
                     body = i.Body
                 },
                 new List<MediaTypeFormatter>() { new JsonMediaTypeFormatter() }));
+            CheckResponse(resp.Result);
             if (resp.Result.StatusCode == System.Net.HttpStatusCode.Created)
             {
                 var issue = resp.Result.Content.ReadAsAsync<JsonIssue>().Result;
                 return new CreationStatusResp() { Code = StatusCode.Ok, NewEntityId = Convert.ToString(issue.number) };
             }
 
-            throw new SoapException("Error processing request", SoapException.ServerFaultCode);
+            throw new FaultException<InternalServerFault>(new InternalServerFault());
         }
 
         public StatusResp EditIssue(string repository, string id, IssueData i)
         {
             var uri = string.Format("https://api.github.com/repos/{0}/{1}/issues/{2}", UserName, repository, id);
 
-            var task = _httpClient.SendAsync(
+            var resp = _httpClient.SendAsync(
                 new HttpRequestMessage(new HttpMethod("PATCH"), uri)
                 {
                     Content = new ObjectContent(typeof(JsonIssue),
@@ -106,64 +119,57 @@ namespace GitHubSoapBroker
                       },
                       new List<MediaTypeFormatter>() { new JsonMediaTypeFormatter() })
                 });
-            if (task.Result.StatusCode == System.Net.HttpStatusCode.OK)
-            {
-                return new StatusResp() { Code = StatusCode.Ok };
-            }
+            CheckResponse(resp.Result);
 
-            throw new SoapException("Error processing request", SoapException.ServerFaultCode);
+            return new StatusResp() { Code = StatusCode.Ok };
         }
 
         public RepositoriesCollectionResp GetRepositories()
         {
             var uri = string.Format("https://api.github.com/user/repos");
-            var task = _httpClient.GetAsync(uri);
-            if (task.Result.IsSuccessStatusCode)
+            var resp = _httpClient.GetAsync(uri);
+            CheckResponse(resp.Result);
+ 
+            var reps = resp.Result.Content.ReadAsAsync<IEnumerable<JsonRepository>>().Result;
+            return new RepositoriesCollectionResp()
             {
-                var reps = task.Result.Content.ReadAsAsync<IEnumerable<JsonRepository>>().Result;
-                return new RepositoriesCollectionResp()
-                {
-                    Repositories = reps != null ? reps.Select(r => new Repository() {
-                        Name = r.name, 
-                        Description = r.description,
-                        Url = r.url
-                    }).ToArray() : null
-                };
-            }
-
-            throw new SoapException("Error processing request", SoapException.ServerFaultCode);
+                Repositories = reps != null ? reps.Select(r => new Repository() {
+                    Name = r.name, 
+                    Description = r.description,
+                    Url = r.url
+                }).ToArray() : null
+            };
         }
 
         public CreationStatusResp CreateRepository(RepositoryData r)
         {
             var uri = string.Format("https://api.github.com/user/repos/");
-            var task = _httpClient.PostAsync(uri, new ObjectContent(typeof(JsonNewRepositoryData),
+            var resp = _httpClient.PostAsync(uri, new ObjectContent(typeof(JsonNewRepositoryData),
                 new JsonNewRepositoryData() { name = r.Name, description = r.Description},
                 new List<MediaTypeFormatter>() { new JsonMediaTypeFormatter() }));
-            if (task.Result.StatusCode == System.Net.HttpStatusCode.Created)
+            CheckResponse(resp.Result);
+
+            if (resp.Result.StatusCode == System.Net.HttpStatusCode.Created)
             {
-                var repo = task.Result.Content.ReadAsAsync<JsonRepository>().Result;
+                var repo = resp.Result.Content.ReadAsAsync<JsonRepository>().Result;
                 return new CreationStatusResp() { Code = StatusCode.Ok, NewEntityId = repo.name };
             }
 
-            throw new SoapException("Error processing request", SoapException.ServerFaultCode);
+            throw new FaultException<InternalServerFault>(new InternalServerFault());
         }
 
         public StatusResp EditRepository(string id, RepositoryData r)
         {
             var uri = string.Format("https://api.github.com/repos/{0}/{1}", UserName, id);
 
-            var task = _httpClient.SendAsync(
+            var resp = _httpClient.SendAsync(
                 new HttpRequestMessage(new HttpMethod("PATCH"), uri)
                 { Content = new ObjectContent(typeof(JsonNewRepositoryData),
                     new JsonNewRepositoryData() { name = r.Name, description = r.Description },
                     new List<MediaTypeFormatter>() { new JsonMediaTypeFormatter() }) });
-            if (task.Result.StatusCode == System.Net.HttpStatusCode.OK)
-            {
-                return new StatusResp() { Code = StatusCode.Ok };
-            }
+            CheckResponse(resp.Result);
 
-            throw new SoapException("Error processing request", SoapException.ServerFaultCode);
+            return new StatusResp() { Code = StatusCode.Ok };
         }
 
         #endregion

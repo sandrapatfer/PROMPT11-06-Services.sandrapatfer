@@ -19,8 +19,6 @@ namespace GitHubSoapBroker
         public string Title { get; set; }
         [DataMember]
         public string Body { get; set; }
-        [DataMember]
-        public IEnumerable<string> labels { get; set; }
     }
 
     public class JsonIssue
@@ -30,10 +28,6 @@ namespace GitHubSoapBroker
         public string state { get; set; }
         public string title { get; set; }
         public string body { get; set; }
-        public IEnumerable<JsonLabel> labels { get; set; }
-        public JsonUser assignee { get; set; }
-        public string closed_at { get; set; }
-        public string created_at { get; set; }
     }
 
 }
