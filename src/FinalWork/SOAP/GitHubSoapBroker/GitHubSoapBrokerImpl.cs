@@ -21,7 +21,7 @@ namespace GitHubSoapBroker
 
         private GitHubSoapBrokerImpl()
         {
-            _httpClient = new GitHubConnection();
+            _httpClient = new HttpClient();
             var bytes = Encoding.ASCII.GetBytes("spf-uc06:spf1234");
             var authHeader = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(bytes));
             _httpClient.DefaultRequestHeaders.Authorization = authHeader;

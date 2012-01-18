@@ -89,7 +89,6 @@
     <Compile Include="Data Contracts\Faults\ServiceUnavailableFault.cs" />
     <Compile Include="Data Contracts\Faults\InternalServerFault.cs" />
     <Compile Include="Data Contracts\Repository.cs" />
-    <Compile Include="GitHubConnection.cs" />
     <Compile Include="GitHubSoapBrokerImpl.cs" />
     <Compile Include="IGitHubSoapBroker.cs" />
     <Compile Include="Data Contracts\Issue.cs" />
