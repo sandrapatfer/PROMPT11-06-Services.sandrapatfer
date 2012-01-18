@@ -36,7 +36,7 @@ namespace DomainModel.Repository
         {
             using (var session = _store.OpenSession())
             {
-                session.Store(item); // TODO check the id field is filled
+                session.Store(item);
                 session.SaveChanges();
             }
         }
@@ -45,7 +45,7 @@ namespace DomainModel.Repository
         {
             using (var session = _store.OpenSession())
             {
-                session.Store(item); // TODO check if this works, does it use the id and update the value?
+                session.Store(item); 
                 session.SaveChanges();
             }
         }
